@@ -38,7 +38,7 @@ class _IndexMainState extends State<IndexMain> {
   ];
 
   final List _dummyPage = [
-    const HomePage(),
+    HomePage(),
     'Ini Halaman Kontak',
     '',
     'ini Halaman Informasi',
@@ -91,7 +91,7 @@ class _IndexMainState extends State<IndexMain> {
           )
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: HomePage(),
       ),
       bottomNavigationBar: Container(
