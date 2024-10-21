@@ -30,6 +30,7 @@ class SubmitButton extends StatelessWidget {
   }
 }
 
+// Sign in with google, apple, or, facebook
 class AuthButton extends StatelessWidget {
   const AuthButton({
     super.key,
