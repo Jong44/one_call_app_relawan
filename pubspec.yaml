@@ -37,7 +37,18 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   flutter_svg: ^2.0.10+1
   iconsax: ^0.0.8
+  get: ^4.6.6
   cupertino_icons: ^1.0.8
+  simple_ripple_animation: ^0.0.9
+  speech_to_text: ^7.0.0
+  flutter_dotenv: ^5.1.0
+  geolocator: ^13.0.1
+  google_maps_flutter: ^2.9.0
+  permission_handler: ^11.3.1
+  geocoding: ^3.0.0
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
