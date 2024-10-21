@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:one_call_login_register/app/widgets/LoginPage/button.dart';
 import 'package:one_call_login_register/app/widgets/LoginPage/input_field.dart';
 
-class Loginpage extends StatelessWidget {
-  const Loginpage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   static const String route = '/login';
 

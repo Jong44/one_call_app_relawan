@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:one_call_login_register/app/config/ColorConfig.dart';
-import 'package:one_call_login_register/app/views/main/details/home_page.dart';
+import 'package:one_call_login_register/app/controller/main/index_main_controller.dart';
 import 'package:one_call_login_register/app/widgets/IndexMain/notification_icon.dart';
 
-class IndexMain extends StatefulWidget {
-  const IndexMain({super.key});
+class IndexMain extends GetView<IndexMainController> {
+  IndexMain({super.key});
 
   static const String route = '/home';
 
-  @override
-  State<IndexMain> createState() => _IndexMainState();
-}
-
-class _IndexMainState extends State<IndexMain> {
   final List _menuItems = [
     {'icon': Iconsax.home, 'iconActive': Iconsax.home5, 'title': 'Beranda'},
     {
@@ -36,16 +32,6 @@ class _IndexMainState extends State<IndexMain> {
       'title': 'Profil',
     },
   ];
-
-  final List _dummyPage = [
-    HomePage(),
-    'Ini Halaman Kontak',
-    '',
-    'ini Halaman Informasi',
-    'Ini Halaman Profil',
-  ];
-
-  int currentPage = 0;
   final String _location = 'Mijen, Prambanan Kidul, Kec. Kaliwungu';
 
   @override
@@ -91,8 +77,10 @@ class _IndexMainState extends State<IndexMain> {
           )
         ],
       ),
-      body: SafeArea(
-        child: HomePage(),
+      body: Obx(
+        () => SafeArea(
+          child: controller.pages[controller.currentIndex.value],
+        ),
       ),
       bottomNavigationBar: Container(
         width: double.infinity,
@@ -102,38 +90,39 @@ class _IndexMainState extends State<IndexMain> {
         child: Row(
           children: List.generate(_menuItems.length, (index) {
             if (_menuItems[index]['size'] != null) {
-              return Container(
-                width: _menuItems[index]['size'],
-              );
+              return Expanded(child: Container());
+              // Container(
+              //   width: _menuItems[index]['size'],
+              // );
             }
             return Expanded(
               child: InkWell(
                 onTap: () {
-                  setState(() {
-                    currentPage = index;
-                  });
+                  controller.changeIndex(index);
                 },
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      currentPage == index
-                          ? _menuItems[index]['iconActive']
-                          : _menuItems[index]['icon'],
-                      color: currentPage == index
-                          ? ColorConfig.primaryColor
-                          : Colors.grey.shade600,
-                      size: 28,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      _menuItems[index]['title'],
-                      style: TextStyle(
-                          color: currentPage == index
-                              ? ColorConfig.primaryColor
-                              : Colors.grey.shade600),
-                    )
-                  ],
+                child: Obx(
+                  () => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        controller.currentIndex.value == index
+                            ? _menuItems[index]['iconActive']
+                            : _menuItems[index]['icon'],
+                        color: controller.currentIndex.value == index
+                            ? ColorConfig.primaryColor
+                            : Colors.grey.shade600,
+                        size: 28,
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        _menuItems[index]['title'],
+                        style: TextStyle(
+                            color: controller.currentIndex.value == index
+                                ? ColorConfig.primaryColor
+                                : Colors.grey.shade600),
+                      )
+                    ],
+                  ),
                 ),
               ),
             );
