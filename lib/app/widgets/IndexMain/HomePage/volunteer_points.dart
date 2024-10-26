@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:one_call_login_register/app/config/ColorConfig.dart';
+import 'package:one_call/app/config/color_config.dart';
 
 class VolunteerPoints extends StatelessWidget {
   const VolunteerPoints({
@@ -50,8 +50,7 @@ class VolunteerPoints extends StatelessWidget {
                       children: [
                         Text(
                           '1209',
-                          style: TextStyle(
-                              fontSize: 48, color: Colors.white),
+                          style: TextStyle(fontSize: 48, color: Colors.white),
                         ),
                         SizedBox(width: 5),
                         Text(

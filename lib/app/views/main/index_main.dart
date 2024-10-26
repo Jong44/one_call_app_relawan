@@ -1,13 +1,20 @@
+// package
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:one_call_login_register/app/config/ColorConfig.dart';
-import 'package:one_call_login_register/app/controller/main/index_main_controller.dart';
-import 'package:one_call_login_register/app/widgets/IndexMain/notification_icon.dart';
+//
+import 'package:one_call/app/config/color_config.dart';
+import 'package:one_call/app/controller/main/location_controller.dart';
+import 'package:one_call/app/controller/main/notifications_controller.dart';
+import 'package:one_call/app/controller/main/index_main_controller.dart';
 
-class IndexMain extends GetView<IndexMainController> {
+class IndexMain extends StatelessWidget {
   IndexMain({super.key});
+
+  // controllers
+  final controller = Get.find<IndexMainController>();
+  final notificationsController = Get.find<NotificationsController>();
+  final locationController = Get.find<LocationController>();
 
   static const String route = '/home';
 
@@ -32,51 +39,12 @@ class IndexMain extends GetView<IndexMainController> {
       'title': 'Profil',
     },
   ];
-  final String _location = 'Mijen, Prambanan Kidul, Kec. Kaliwungu';
+  //final String _location = LocationController().address.value;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 4,
-        backgroundColor: Colors.white,
-        shadowColor: Colors.grey.shade600,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10.0),
-          child: SvgPicture.asset('assets/images/logo.svg'),
-        ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // location title
-            const Row(
-              children: [
-                Icon(
-                  Iconsax.location,
-                  size: 10,
-                ),
-                SizedBox(width: 5),
-                Text(
-                  'Current Location',
-                  style: TextStyle(fontSize: 10, fontFamily: 'Inter'),
-                )
-              ],
-            ),
-            // current location
-            Text(
-              _location,
-              style: const TextStyle(fontSize: 12, fontFamily: 'Inter'),
-            ),
-          ],
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: NotificationIcon(),
-          )
-        ],
-      ),
       body: Obx(
         () => SafeArea(
           child: controller.pages[controller.currentIndex.value],
@@ -130,7 +98,21 @@ class IndexMain extends GetView<IndexMainController> {
         ),
       ),
       floatingActionButton: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          notificationsController.triggeredEmergencyNotifications(
+            url:
+                'https://maps.googleapis.com/maps/api/staticmap?center=37.7749,-122.4194&zoom=14&size=400x400&key=AIzaSyAWGOnzfAlD2vG5P7ul3TrMFTSlNrBdt7M',
+          );
+
+          // Get.bottomSheet(Container(
+          //   height: 500,
+          //   decoration: const BoxDecoration(
+          //       color: Colors.white,
+          //       borderRadius: BorderRadius.only(
+          //           topLeft: Radius.circular(18),
+          //           topRight: Radius.circular(18))),
+          // ));
+        },
         child: Stack(
           alignment: Alignment.center,
           children: [

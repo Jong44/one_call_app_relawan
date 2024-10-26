@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:one_call_login_register/app/widgets/LoginPage/button.dart';
-import 'package:one_call_login_register/app/widgets/LoginPage/input_field.dart';
+import 'package:one_call/app/controller/auth/auth_controller.dart';
+import 'package:one_call/app/routes/routes_name.dart';
+import 'package:one_call/app/widgets/LoginPage/button.dart';
+import 'package:one_call/app/widgets/input_field.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  final controller = Get.find<AuthController>();
 
   static const String route = '/login';
 
@@ -41,51 +46,53 @@ class LoginPage extends StatelessWidget {
                     'Sign in',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                  onPressed: () => Navigator.pushNamed(context, '/home'),
+                  onPressed: () {
+                    Get.offNamed(RoutesName.home);
+                  },
                 ),
 
                 // other sign in options
-                Padding(
-                  padding: const EdgeInsets.only(top: 50, bottom: 20),
-                  child: Center(
-                    child: Text(
-                      'Other sign in options',
-                      style: TextStyle(color: Colors.grey.shade700),
-                    ),
-                  ),
-                ),
-                // other auth sign in button
-                Center(
-                  child: SizedBox(
-                    width: 250,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        // Facebook Auth Login
-                        AuthButton(
-                          image: Image.asset(
-                            'assets/images/fb.png',
-                            scale: 0.8,
-                          ),
-                        ),
-                        // Google Auth Login
-                        AuthButton(
-                          image: Image.asset(
-                            'assets/images/google.png',
-                            scale: 0.8,
-                          ),
-                        ),
-                        // Apple Auth Login
-                        AuthButton(
-                          image: Image.asset(
-                            'assets/images/apple.png',
-                            scale: 0.8,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 50, bottom: 20),
+                //   child: Center(
+                //     child: Text(
+                //       'Other sign in options',
+                //       style: TextStyle(color: Colors.grey.shade700),
+                //     ),
+                //   ),
+                // ),
+                // // other auth sign in button
+                // Center(
+                //   child: SizedBox(
+                //     width: 250,
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //       children: [
+                //         // Facebook Auth Login
+                //         AuthButton(
+                //           image: Image.asset(
+                //             'assets/images/fb.png',
+                //             scale: 0.8,
+                //           ),
+                //         ),
+                //         // Google Auth Login
+                //         AuthButton(
+                //           image: Image.asset(
+                //             'assets/images/google.png',
+                //             scale: 0.8,
+                //           ),
+                //         ),
+                //         // Apple Auth Login
+                //         AuthButton(
+                //           image: Image.asset(
+                //             'assets/images/apple.png',
+                //             scale: 0.8,
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),

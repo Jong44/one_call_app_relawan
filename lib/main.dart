@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:one_call_login_register/app/config/ColorConfig.dart';
-import 'package:one_call_login_register/app/routes/app_routes.dart';
-import 'package:one_call_login_register/app/views/auth/login/login_page.dart';
-import 'package:one_call_login_register/app/views/main/index_main.dart';
+import 'package:one_call/app/config/color_config.dart';
+import 'package:one_call/app/routes/app_routes.dart';
+import 'package:one_call/app/services/notifications_service.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:workmanager/workmanager.dart';
 
 void main() {
+  final notificationsService = NotificationsService();
+
+  notificationsService.configuration();
+  notificationsService.handleNotificationAction;
+  notificationsService.listenToAction();
+
   runApp(const MyApp());
 }
 
@@ -24,7 +32,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const LoginPage(),
-      initialRoute: 'auth',
+      initialRoute: '/auth',
       getPages: AppRoutes.pages,
     );
   }

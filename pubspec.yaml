@@ -1,4 +1,4 @@
-name: one_call_login_register
+name: one_call
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,16 +39,18 @@ dependencies:
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.8
   get: ^4.6.6
-  simple_ripple_animation: ^0.0.9
+  geolocator: ^13.0.1
+  awesome_notifications: ^0.10.0
+  awesome_notifications_core: ^0.10.0
+  google_maps_flutter: ^2.9.0
+  #flutter_plugin_android_lifecycle: ^2.0.23
+  geocoding: ^3.0.0
+  shared_preferences: ^2.3.2
+  permission_handler: ^11.3.1
   speech_to_text: ^7.0.0
   flutter_dotenv: ^5.1.0
-  geolocator: ^13.0.1
-  google_maps_flutter: ^2.9.0
-  permission_handler: ^11.3.1
-  geocoding: ^3.0.0
   http: ^1.2.2
-  shared_preferences: ^2.3.2
-  carousel_slider: ^5.0.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +61,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

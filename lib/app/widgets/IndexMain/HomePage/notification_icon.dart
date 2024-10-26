@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:one_call_login_register/app/config/ColorConfig.dart';
+import 'package:one_call/app/config/color_config.dart';
 
 class NotificationIcon extends StatelessWidget {
   const NotificationIcon({
