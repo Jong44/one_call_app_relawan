@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:one_call/app/controller/auth/auth_controller.dart';
-import 'package:one_call/app/routes/routes_name.dart';
 import 'package:one_call/app/widgets/LoginPage/button.dart';
 import 'package:one_call/app/widgets/input_field.dart';
-import 'package:get/get.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
-  final controller = Get.find<AuthController>();
-
-  static const String route = '/login';
+class LoginPage extends GetView<AuthController> {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +26,20 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 50),
                 // F O R M
                 //email
-                const InputField(
-                    labelText: 'Email Address', hintText: 'Your email'),
+                InputField(
+                  onChanged: controller.setEmail,
+                  labelText: 'Email Address',
+                  hintText: 'Your email',
+                  isPassword: false,
+                ),
                 const SizedBox(height: 25),
                 //password
-                const InputField(labelText: 'Password', hintText: 'Password'),
+                InputField(
+                  onChanged: controller.setPassword,
+                  labelText: 'Password',
+                  hintText: 'Password',
+                  isPassword: true,
+                ),
                 // Forgot password
                 TextButton(
                     onPressed: () {}, child: const Text('Forgot Password?')),
@@ -47,7 +51,7 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   onPressed: () {
-                    Get.offNamed(RoutesName.home);
+                    controller.login();
                   },
                 ),
 

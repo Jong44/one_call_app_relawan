@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
               () => Text(
                 (controller.address.value.isNotEmpty)
                     ? controller.address.value
-                    : 'Menunggu Lokasi',
+                    : 'Mendapatkan Lokasi...',
                 style: const TextStyle(fontSize: 12, fontFamily: 'Inter'),
               ),
             ),

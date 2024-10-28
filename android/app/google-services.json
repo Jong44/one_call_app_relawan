@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "984091766046",
+    "project_id": "one-call-app-7e564",
+    "storage_bucket": "one-call-app-7e564.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984091766046:android:ee9950c80f9e14ba3c2d0f",
+        "android_client_info": {
+          "package_name": "com.example.one_call_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwrL69mZXSqChimd1HFsVXL7TCrPw-jHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984091766046:android:47756c70c3cea62b3c2d0f",
+        "android_client_info": {
+          "package_name": "com.example.one_call_login_register"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwrL69mZXSqChimd1HFsVXL7TCrPw-jHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

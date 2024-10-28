@@ -50,6 +50,14 @@ dependencies:
   speech_to_text: ^7.0.0
   flutter_dotenv: ^5.1.0
   http: ^1.2.2
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  firebase_database: ^11.1.4
+  cloud_firestore: ^5.4.4
+  firebase_storage: ^12.3.4
+  slide_to_act: ^2.0.2
+  carousel_slider: ^5.0.0
+  
   
 
 dev_dependencies:

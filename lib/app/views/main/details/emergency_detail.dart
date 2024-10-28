@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:slide_to_act/slide_to_act.dart';
 import 'package:one_call/app/config/color_config.dart';
 import 'package:one_call/app/controller/main/maps_controller.dart';
 import 'package:one_call/app/widgets/IndexMain/card_location_map.dart';
@@ -32,7 +34,7 @@ class EmergencyDetail extends GetView<MapController> {
             left: 0,
             right: 0,
             child: Container(
-                height: 250,
+                height: 350,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
@@ -146,6 +148,10 @@ class EmergencyDetail extends GetView<MapController> {
                                 ),
                               )
                             ],
+                          ),
+                          SlideAction(
+                            onSubmit: () {},
+                            submittedIcon: Icon(Icons.arrow_right),
                           )
                         ],
                       ),
